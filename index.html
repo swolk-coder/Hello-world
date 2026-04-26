@@ -105,13 +105,30 @@
         </div>
     </div>
 
-    <script>
-        function countDeploys() {
-            let count = document.getElementById('count');
-            count.innerText = parseInt(count.innerText) + 1;
-            alert('Ещё один успешный запуск в облако!');
-        }
-    </script>
+  <script>
+    function countDeploys() {
+        let count = document.getElementById('count');
+        count.innerText = parseInt(count.innerText) + 1;
+        alert('Ещё один успешный запуск в облако!');
+    }
+
+    // Новый скрипт приветствия
+    function setGreeting() {
+        const hour = new Date().getHours();
+        let message = "";
+        
+        if (hour < 6) message = "Доброй ночи, Админ";
+        else if (hour < 12) message = "Доброе утро, Админ";
+        else if (hour < 18) message = "Добрый день, Админ";
+        else message = "Добрый вечер, Админ";
+        
+        document.querySelector('p').innerText = message + " | ПУТЬ К AZ-104";
+    }
+
+    // Запускаем при загрузке
+    window.onload = setGreeting;
+</script>
+
 </body>
 </html>
 
